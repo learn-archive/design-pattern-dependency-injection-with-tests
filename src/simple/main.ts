@@ -1,4 +1,6 @@
-import { ThrowableWeapon, Warrior, Weapon } from './services';
+import { ThrowableWeapon } from './services/throwable-weapon';
+import { Warrior } from './services/warrior';
+import { Weapon } from './services/weapon';
 
 export function main(): string {
   const warrior = new Warrior(new Weapon(), new ThrowableWeapon());
@@ -6,7 +8,7 @@ export function main(): string {
 }
 
 export class MainService {
-  constructor(private _warrior: Warrior) {}
+  constructor(private readonly _warrior: Warrior) {}
 
   hit(): string {
     return this._warrior.sneak();

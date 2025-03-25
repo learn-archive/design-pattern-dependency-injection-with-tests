@@ -1,12 +1,11 @@
 import { MainService, main } from './main';
-import { ThrowableWeapon, Warrior, Weapon } from './services';
+import { mockWarrior } from './services/mocks/services.mock';
 
 describe('main unit', () => {
   let mainService: MainService;
 
   beforeEach(() => {
-    const warrior = new Warrior(new Weapon(), new ThrowableWeapon());
-    mainService = new MainService(warrior);
+    mainService = new MainService(mockWarrior());
   });
 
   test('should cut', async () => {
