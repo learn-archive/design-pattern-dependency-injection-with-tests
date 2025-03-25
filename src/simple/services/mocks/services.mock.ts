@@ -1,10 +1,10 @@
 import { MockProxy, mock } from 'jest-mock-extended';
-import { DeepPartial } from 'ts-essentials';
+import { DeepPartial, DeepRequired } from 'ts-essentials';
 import { ThrowableWeapon } from '../throwable-weapon';
 import { Warrior } from '../warrior';
 import { Weapon } from '../weapon';
 
-export function createMock<T>(mockImplementation: Required<T>): MockProxy<T> {
+export function createMock<T>(mockImplementation: DeepRequired<T>): MockProxy<T> {
   return mock<T>(mockImplementation as DeepPartial<T>);
 }
 
