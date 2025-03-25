@@ -6,12 +6,11 @@ export interface IWarrior {
   sneak: (inject: { ThrowableWeapon: IThrowableWeapon }) => string;
 }
 
-export const Warrior: IWarrior = { fight, sneak };
-
-function fight(): string {
-  return Weapon.hit();
-}
-
-function sneak(inject: { ThrowableWeapon: IThrowableWeapon }): string {
-  return inject.ThrowableWeapon.cut();
-}
+export const Warrior: IWarrior = {
+  fight: (): string => {
+    return Weapon.hit();
+  },
+  sneak: (inject: { ThrowableWeapon: IThrowableWeapon }): string => {
+    return inject.ThrowableWeapon.cut();
+  },
+};

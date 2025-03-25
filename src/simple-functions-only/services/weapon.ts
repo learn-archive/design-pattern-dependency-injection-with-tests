@@ -1,5 +1,5 @@
-export const Weapon = { hit };
-
-function hit(): string {
-  return 'hit!';
-}
+export const Weapon = {
+  hit: (): string => {
+    return 'hit!';
+  },
+};
