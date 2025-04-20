@@ -10,7 +10,7 @@ export function main(): string {
 export class MainService {
   constructor(private readonly _warrior: Warrior) {}
 
-  hit(): string {
+  action(): string {
     return this._warrior.sneak();
   }
 }
