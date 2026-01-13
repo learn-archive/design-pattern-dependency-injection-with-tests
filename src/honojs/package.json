@@ -1,0 +1,17 @@
+{
+  "name": "honojs",
+  "type": "module",
+  "scripts": {
+    "start": "tsx watch src/server.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.8",
+    "hono": "^4.11.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
+  }
+}
