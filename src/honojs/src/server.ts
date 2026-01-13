@@ -1,15 +1,23 @@
-import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
+import 'reflect-metadata';
 
-const app = new Hono()
+import { serve } from '@hono/node-server';
+import { Hono } from 'hono';
+import { container } from 'tsyringe';
+import { Warrior } from './services/warrior';
+
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+  const warrior = container.resolve(Warrior);
+  return c.text(warrior.fight());
+});
 
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+serve(
+  {
+    fetch: app.fetch,
+    port: 3000,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+  },
+);
