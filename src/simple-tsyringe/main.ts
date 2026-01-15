@@ -7,5 +7,3 @@ export function main() {
   const app = container.resolve(App);
   app.execute();
 }
-
-main();
