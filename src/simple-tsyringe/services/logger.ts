@@ -1,8 +1,19 @@
-import { injectable } from 'tsyringe';
+import pino from 'pino';
+import { singleton } from 'tsyringe';
 
-@injectable()
+@singleton()
 export class Logger {
-  public info(message: string) {
-    console.log(message);
+  private readonly logger: pino.Logger;
+
+  constructor() {
+    this.logger = pino({ level: 'info' });
+  }
+
+  public info(message: string | object): void {
+    this.logger.info(message);
+  }
+
+  public error(message: string | object | Error): void {
+    this.logger.error(message);
   }
 }
