@@ -1,14 +1,14 @@
 import { MainService, main } from './main';
-import { mockWarrior } from './services/mocks/services.mock';
-import { Warrior } from './services/warrior';
+import { App } from './services/app';
+import { mockWarrior } from './services/services.mock';
 
 describe('main unit', () => {
   let mainService: MainService;
 
   beforeEach(() => {
     mainService = new MainService(mockWarrior());
-    jest.spyOn(Warrior.prototype, 'fight').mockImplementation(() => 'fake fight !');
-    jest.spyOn(Warrior.prototype, 'sneak').mockImplementation(() => 'fake throw !');
+    jest.spyOn(App.prototype, 'fight').mockImplementation(() => 'fake fight !');
+    jest.spyOn(App.prototype, 'sneak').mockImplementation(() => 'fake throw !');
   });
 
   test('should cut', async () => {

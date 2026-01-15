@@ -1,16 +1,11 @@
-import { ThrowableWeapon } from './services/throwable-weapon';
-import { Warrior } from './services/warrior';
-import { Weapon } from './services/weapon';
+import 'reflect-metadata';
 
-export function main(): string {
-  const warrior = new Warrior(new Weapon(), new ThrowableWeapon());
-  return warrior.fight();
-}
+import { App } from './services/app';
+import { Database } from './services/database';
+import { Logger } from './services/logger';
 
-export class MainService {
-  constructor(private readonly _warrior: Warrior) {}
-
-  action(): string {
-    return this._warrior.sneak();
-  }
+export function main() {
+  const logger = new Logger();
+  const app = new App(new Database(logger), logger);
+  app.execute();
 }
